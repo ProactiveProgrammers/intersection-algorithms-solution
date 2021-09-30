@@ -29,13 +29,48 @@ Run 2: ListDouble with a large input
 Note: Whenever possible, please use the same "small" and "large" inputs for both
 the List-based and Tuple-based algorithms.
 
+Note: Do not run the program with the `--display` option when conducting
+experiments!
+
 #### Two outputs from running the `ListSingle` algorithm with different inputs
+
+```
+output
+```
+
+```
+output
+```
 
 #### Two outputs from running the `ListDouble` algorithm with different inputs
 
+```
+output
+```
+
+```
+output
+```
+
 #### Two outputs from running the `TupleSingle` algorithm with different inputs
 
+```
+output
+```
+
+```
+output
+```
+
 #### Two outputs from running the `TupleDouble` algorithm with different inputs
+
+```
+output
+```
+
+```
+output
+```
 
 ## Performance Analysis
 
