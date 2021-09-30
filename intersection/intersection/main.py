@@ -102,6 +102,19 @@ def intersection(
         # do not perform profiling on the intersection algorithm
         else:
             intersection_output = compute_intersection_list(list(input_one), list(input_two))
+    # use the intersection algorithm that works on an input tuple
+    elif approach.value == IntersectionApproach.tuple:
+        # generate the two tuples of random values
+        input_one = generate_random_list(number, make_tuple=True)
+        input_two = generate_random_list(number, make_tuple=True)
+        # perform profiling on the execution of the intersection algorithm
+        if profile:
+            profiler.start()
+            intersection_output = compute_intersection_tuple(tuple(input_one), tuple(input_two))
+            profiler.stop()
+        # do not perform profiling on the intersection algorithm
+        else:
+            intersection_output = compute_intersection_tuple(tuple(input_one), tuple(input_two))
     # display the input sets and the result of running the computation
     if display:
         console.print(":sparkles: Here are the details about the intersection computation!")
@@ -113,6 +126,6 @@ def intersection(
     if profile:
         console.print()
         console.print(
-            f":microscope: Here's profiling data from computing an intersection with random data containers of size {number}!"
+            f":microscope: Here's profiling data from computing an intersection with random data containers of {number}!"
         )
         profiler.print()
