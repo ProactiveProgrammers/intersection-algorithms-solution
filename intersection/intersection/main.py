@@ -81,7 +81,7 @@ def intersection(
     display: bool = typer.Option(False),
     approach: IntersectionApproach = IntersectionApproach.tuple,
 ) -> None:
-    """Use iteration to perform primality testing on a number."""
+    """Compute the intersection of data containers."""
     # create a console for rich text output
     console = Console()
     # create the starting data containers with no contents
@@ -102,15 +102,17 @@ def intersection(
         # do not perform profiling on the intersection algorithm
         else:
             intersection_output = compute_intersection_list(list(input_one), list(input_two))
+    # display the input sets and the result of running the computation
     if display:
+        console.print(":sparkles: Here are the details about the intersection computation!")
+        console.print()
         console.print(f"Performed intersection with the first data container: {input_one}")
         console.print(f"Performed intersection with the second data container: {input_two}")
-        console.print(f"Computed the intersection as {intersection_output}")
-    # display the results of performing the intersection
+        console.print(f"Computed the intersection as the data container: {intersection_output}")
     # display the results of the profiling if that option was requested
     if profile:
         console.print()
         console.print(
-            f":microscope: Here's profiling data from performing primality testing on {number}!"
+            f":microscope: Here's profiling data from computing an intersection with random data containers of size {number}!"
         )
         profiler.print()
