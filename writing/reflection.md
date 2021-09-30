@@ -4,37 +4,38 @@
 
 ## Program Output
 
-### Use six fenced code blocks to provide output from six different runs of `primality` with different inputs
+### Use eight fenced code blocks to provide output from eight different runs of `intersection` with different inputs
 
-Note: Pick three different input values and run then each with
-(a) the exhaustive algorithm
-and
-(b) the efficient algorithm
+Note: Summary of the runs for the List-based algorithms:
 
-#### Three outputs from running the exhaustive algorithm
+Note: Summary of the runs for the ListSingle algorithm:
+Run 1: ListSingle with a small input
+Run 2: ListSingle with a large input
 
-Note: Provide the specific command that you ran to produce this output
-Note: Use a fenced code block to provide the output for this command.
+Note: Summary of the runs for the ListDouble algorithm:
+Run 1: ListDouble with a small input
+Run 2: ListDouble with a large input
 
-- `poetry run primality --number 49979687 --approach efficient --profile`
+Note: Summary of the runs for the Tuple-based algorithms:
 
-```
-😄 Attempting to determine if 49979687 is a prime number!
+Note: Summary of the runs for the TupleSingle algorithm:
+Run 1: TupleSingle with a small input
+Run 2: TupleSingle with a large input
 
-✨ What divisors were found? 1, 49979687
-✨ Was this a prime number? Yes
+Note: Summary of the runs for the ListDouble algorithm:
+Run 1: ListDouble with a small input
+Run 2: ListDouble with a large input
 
-🔬 Here's profile data from performing primality testing on {number}!
+Note: Whenever possible, please use the same "small" and "large" inputs for both
+the List-based and Tuple-based algorithms.
 
-  _     ._   __/__   _ _  _  _ _/_   Recorded: 14:03:54  Samples:  1
- /_//_/// /_\ / //_// / //_'/ //     Duration: 0.895     CPU time: 0.895
-/   _/                      v4.0.3
+#### Two outputs from running the `ListSingle` algorithm with different inputs
 
-Program: primality --number 49979687 --approach efficient --profile
+#### Two outputs from running the `ListDouble` algorithm with different inputs
 
-0.895 square  primality/main.py:93
-└─ 0.895 primality_test_efficient  primality/main.py:77
-```
+#### Two outputs from running the `TupleSingle` algorithm with different inputs
+
+#### Two outputs from running the `TupleDouble` algorithm with different inputs
 
 ## Performance Analysis
 
@@ -76,17 +77,17 @@ tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
 gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-#### A function signature that defines the command-line interface for `primality`
+#### A function signature that defines the command-line interface for `intersection`
 
 Note: Use a fenced code block to provide the requested source code
 Note: Write at least one paragraph to explain the request source code
 
 ```
 @cli.command()
-def primality(
+def intersection(
     number: int = typer.Option(5),
     profile: bool = typer.Option(False),
-    approach: PrimalityTestingApproach = PrimalityTestingApproach.efficient,
+    approach: intersectionTestingApproach = intersectionTestingApproach.efficient,
 ) -> None:
 ```
 
