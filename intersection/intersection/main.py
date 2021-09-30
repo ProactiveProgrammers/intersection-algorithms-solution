@@ -41,13 +41,6 @@ def human_readable_boolean(answer: bool) -> str:
     return "No"
 
 
-def pretty_print_list(values: Iterable[int]) -> str:
-    """Pretty print a list without brackets and adding commas."""
-    # create and return a version of the list without brackets
-    # and with commas in between all of the values
-    return ", ".join(map(str, values))
-
-
 def generate_random_container(size: int, maximum: int, make_tuple: bool = False) -> Union[List[int], Tuple[int, ...]]:
     """Generate a random list defined by the size."""
     random_list = [random.randrange(1, maximum, 1) for _ in range(size)]
