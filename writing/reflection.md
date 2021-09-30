@@ -39,9 +39,21 @@ the List-based and Tuple-based algorithms.
 
 ## Performance Analysis
 
-Note: Provide one paragraph that states which algorithm is fastest, by how much
-it is faster, and how you knew that the it was faster, referencing the data in
-the aforementioned command outputs to support your response.
+Note: Provide three paragraphs that explain which algorithm is fastest, by how
+much it is faster, and how you knew that the it was faster, referencing the data
+in the aforementioned command outputs to support your response. You should make
+sure that you answer the following research questions:
+
+- RQ: Is intersection faster with a list or a tuple?
+- RQ: Is intersection faster with a double-for-loop or a single-for-loop?
+- RQ: Overall, what is the fastest approach for computing the intersection?
+
+Note: Make sure that your responses explain WHY certain algorithms are faster!
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
@@ -57,19 +69,19 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ### Describe in detail how the completed source code works
 
-#### A function that converts a `bool` into a human readable `str` value
+#### A class that defines the four algorithmic options for running the experiment
 
 Note: Use a fenced code block to provide the requested source code
 Note: Write at least one paragraph to explain the request source code
 
 ```
-def human_readable_boolean(answer: bool) -> str:
-    """Produce a human-readable Yes or No for a boolean value of True or False."""
-    # the provided answer is True
-    if answer:
-        return "Yes"
-    # the provided answer is False
-    return "No"
+class IntersectionApproach(str, Enum):
+    """Define the name for the approach for performing intersection of structured types."""
+
+    list_single = "ListSingle"
+    tuple_single = "TupleSingle"
+    list_double = "ListDouble"
+    tuple_double = "TupleDouble"
 ```
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -81,13 +93,15 @@ gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 Note: Use a fenced code block to provide the requested source code
 Note: Write at least one paragraph to explain the request source code
+Note: Explain each of the command-line arguments for this program
 
 ```
-@cli.command()
 def intersection(
     number: int = typer.Option(5),
+    maximum: int = typer.Option(25),
     profile: bool = typer.Option(False),
-    approach: intersectionTestingApproach = intersectionTestingApproach.efficient,
+    display: bool = typer.Option(False),
+    approach: IntersectionApproach = IntersectionApproach.tuple_single,
 ) -> None:
 ```
 
@@ -95,6 +109,28 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+#### A function that can generate a data container with random values in it
+
+Note: Use a fenced code block to provide the requested source code
+Note: Write at least one paragraph to explain the request source code
+Note: Explain each line of source code in this function
+
+```
+def generate_random_container(
+    size: int, maximum: int, make_tuple: bool = False
+) -> Union[List[int], Tuple[int, ...]]:
+    """Generate a random list defined by the size."""
+    random_list = [random.randrange(1, maximum, 1) for _ in range(size)]
+    if make_tuple:
+        return tuple(random_list)
+    return random_list
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ### What was the greatest challenge that you faced when completing this assignment?
 
@@ -105,7 +141,7 @@ tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
 gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-### Based on your experiences with this project, what is one way in which you want to improve?
+### Leveraging your response to the previous question, how did you overcome the challenge?
 
 Note: Provide a one-paragraph response that answers this question in your own words.
 
