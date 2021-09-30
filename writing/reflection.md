@@ -86,6 +86,7 @@ sure that you answer the following research questions:
 - RQ: Overall, what is the fastest approach for computing the intersection?
 
 Note: Make sure that your responses explain WHY certain algorithms are faster!
+Note: It is not sufficient to only explain WHICH algorithm is faster!
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
