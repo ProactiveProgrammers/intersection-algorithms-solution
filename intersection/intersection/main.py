@@ -26,9 +26,10 @@ profiler = Profiler()
 class IntersectionApproach(str, Enum):
     """Define the name for the approach for performing intersection of structured types."""
 
-    list = "list"
-    tuple = "tuple"
-    set = "set"
+    list_single = "ListSingle"
+    tuple_single = "TupleSingle"
+    list_double = "ListDouble"
+    tuple_double = "TupleDouble"
 
 
 def human_readable_boolean(answer: bool) -> str:
@@ -47,15 +48,15 @@ def pretty_print_list(values: Iterable[int]) -> str:
     return ", ".join(map(str, values))
 
 
-def generate_random_list(size: int, make_tuple: bool = False) -> Union[List[int], Tuple[int, ...]]:
+def generate_random_list(size: int, maximum: int, make_tuple: bool = False) -> Union[List[int], Tuple[int, ...]]:
     """Generate a random list defined by the size."""
-    random_list = [random.randrange(1, 25, 1) for _ in range(size)]
+    random_list = [random.randrange(1, maximum, 1) for _ in range(size)]
     if make_tuple:
         return tuple(random_list)
     return random_list
 
 
-def compute_intersection_list(input_one: List[Any], input_two: List[Any]) -> List[Any]:
+def compute_intersection_list_double(input_one: List[Any], input_two: List[Any]) -> List[Any]:
     """Compute the intersection of two provided lists."""
     result = []
     for x in input_one:
@@ -65,7 +66,26 @@ def compute_intersection_list(input_one: List[Any], input_two: List[Any]) -> Lis
     return result
 
 
-def compute_intersection_tuple(input_one: Tuple[Any, ...], input_two: Tuple[Any, ...]) -> Tuple[Any, ...]:
+def compute_intersection_list_single(input_one: List[Any], input_two: List[Any]) -> List[Any]:
+    """Compute the intersection of two provided lists."""
+    result = []
+    for element in input_one:
+        if element in input_two:
+            result.append(element)
+    return result
+
+
+def compute_intersection_tuple_double(input_one: Tuple[Any, ...], input_two: Tuple[Any, ...]) -> Tuple[Any, ...]:
+    """Compute the intersection of two provided lists."""
+    result = ()
+    for x in input_one:
+        for y in input_two:
+            if x == y:
+                result += (y,)
+    return result
+
+
+def compute_intersection_tuple_single(input_one: Tuple[Any, ...], input_two: Tuple[Any, ...]) -> Tuple[Any, ...]:
     """Compute the intersection of two provided tuples."""
     result = ()
     for element in input_one:
@@ -77,9 +97,10 @@ def compute_intersection_tuple(input_one: Tuple[Any, ...], input_two: Tuple[Any,
 @cli.command()
 def intersection(
     number: int = typer.Option(5),
+    maximum: int = typer.Option(25),
     profile: bool = typer.Option(False),
     display: bool = typer.Option(False),
-    approach: IntersectionApproach = IntersectionApproach.tuple,
+    approach: IntersectionApproach = IntersectionApproach.tuple_single,
 ) -> None:
     """Compute the intersection of data containers."""
     # create a console for rich text output
@@ -89,38 +110,39 @@ def intersection(
     input_two = None
     # create a starting output variable for the intersection computation
     intersection_output = None
-    # use the intersection algorithm that works on an input list
-    if approach.value == IntersectionApproach.list:
-        # generate the two lists of random values
-        input_one = generate_random_list(number)
-        input_two = generate_random_list(number)
-        # perform profiling on the execution of the intersection algorithm
-        if profile:
-            profiler.start()
-            intersection_output = compute_intersection_list(list(input_one), list(input_two))
-            profiler.stop()
-        # do not perform profiling on the intersection algorithm
-        else:
-            intersection_output = compute_intersection_list(list(input_one), list(input_two))
-    # use the intersection algorithm that works on an input tuple
-    elif approach.value == IntersectionApproach.tuple:
+    # TupleSingle: the intersection algorithm that works on an input list
+    if approach.value == IntersectionApproach.tuple_single:
         # generate the two tuples of random values
-        input_one = generate_random_list(number, make_tuple=True)
-        input_two = generate_random_list(number, make_tuple=True)
+        input_one = generate_random_list(number, maximum, make_tuple=True)
+        input_two = generate_random_list(number, maximum, make_tuple=True)
         # perform profiling on the execution of the intersection algorithm
         if profile:
             profiler.start()
-            intersection_output = compute_intersection_tuple(tuple(input_one), tuple(input_two))
+            intersection_output = compute_intersection_tuple_single(tuple(input_one), tuple(input_two))
             profiler.stop()
         # do not perform profiling on the intersection algorithm
         else:
-            intersection_output = compute_intersection_tuple(tuple(input_one), tuple(input_two))
+            intersection_output = compute_intersection_tuple_single(tuple(input_one), tuple(input_two))
+    # TupleDouble: use the intersection algorithm that works on an input tuple
+    elif approach.value == IntersectionApproach.tuple_double:
+        # generate the two tuples of random values
+        input_one = generate_random_list(number, maximum, make_tuple=True)
+        input_two = generate_random_list(number, maximum, make_tuple=True)
+        # perform profiling on the execution of the intersection algorithm
+        if profile:
+            profiler.start()
+            intersection_output = compute_intersection_tuple_double(tuple(input_one), tuple(input_two))
+            profiler.stop()
+        # do not perform profiling on the intersection algorithm
+        else:
+            intersection_output = compute_intersection_tuple_double(tuple(input_one), tuple(input_two))
     # display the input sets and the result of running the computation
     if display:
         console.print(":sparkles: Here are the details about the intersection computation!")
         console.print()
-        console.print(f"Performed intersection with the first data container: {input_one}")
-        console.print(f"Performed intersection with the second data container: {input_two}")
+        console.print("Performed intersection with:")
+        console.print(f"---> the first data container: {input_one}")
+        console.print(f"---> the second data container: {input_two}")
         console.print(f"Computed the intersection as the data container: {intersection_output}")
     # display the results of the profiling if that option was requested
     if profile:
