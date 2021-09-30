@@ -70,8 +70,7 @@ jobs:
           run: |
             cd primality
             poetry install
-            poetry run primality --number 49979687 --approach efficient
-            poetry run primality --number 49979687 --approach efficient --profile
+            poetry run intersection --number 1000 --maximum 25 --profile --approach ListDouble
         # Run the black code formatter in checking mode
         - name: Run Black Code Formatter
           run: |
