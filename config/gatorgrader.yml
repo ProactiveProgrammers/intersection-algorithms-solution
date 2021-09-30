@@ -23,15 +23,15 @@ intersection/intersection/main.py:
 intersection/tests/test_intersection.py:
     ConfirmFileExists
     MatchFileFragment --fragment "TODO" --count 0 --exact
-    MatchFileFragment --fragment "test_" --count 9 --exact
-    CountMultipleLineComments --language Python --count 6
+    MatchFileFragment --fragment "test_" --count 4
+    CountMultipleLineComments --language Python --count 5
 
 # --> check the technical writing for various characteristics
 writing/reflection.md:
     ConfirmFileExists
     CountFileWords --count 500
     CountMarkdownTags --tag "heading" --count 13
-    CountMarkdownTags --tag "code_block" --count 8 --exact
+    CountMarkdownTags --tag "code_block" --count 11
     MatchFileFragment --fragment "TODO" --count 0 --exact
     MatchFileFragment --fragment "Add Your Name Here" --count 0 --exact
 
