@@ -48,7 +48,7 @@ def pretty_print_list(values: Iterable[int]) -> str:
     return ", ".join(map(str, values))
 
 
-def generate_random_list(size: int, maximum: int, make_tuple: bool = False) -> Union[List[int], Tuple[int, ...]]:
+def generate_random_container(size: int, maximum: int, make_tuple: bool = False) -> Union[List[int], Tuple[int, ...]]:
     """Generate a random list defined by the size."""
     random_list = [random.randrange(1, maximum, 1) for _ in range(size)]
     if make_tuple:
@@ -112,9 +112,9 @@ def intersection(
     intersection_output = None
     # TupleSingle: the intersection algorithm that works on an input list
     if approach.value == IntersectionApproach.tuple_single:
-        # generate the two tuples of random values
-        input_one = generate_random_list(number, maximum, make_tuple=True)
-        input_two = generate_random_list(number, maximum, make_tuple=True)
+        # generate the two inputs consisting of random values
+        input_one = generate_random_container(number, maximum, make_tuple=True)
+        input_two = generate_random_container(number, maximum, make_tuple=True)
         # perform profiling on the execution of the intersection algorithm
         if profile:
             profiler.start()
@@ -126,8 +126,34 @@ def intersection(
     # TupleDouble: use the intersection algorithm that works on an input tuple
     elif approach.value == IntersectionApproach.tuple_double:
         # generate the two tuples of random values
-        input_one = generate_random_list(number, maximum, make_tuple=True)
-        input_two = generate_random_list(number, maximum, make_tuple=True)
+        input_one = generate_random_container(number, maximum, make_tuple=True)
+        input_two = generate_random_container(number, maximum, make_tuple=True)
+        # perform profiling on the execution of the intersection algorithm
+        if profile:
+            profiler.start()
+            intersection_output = compute_intersection_tuple_double(tuple(input_one), tuple(input_two))
+            profiler.stop()
+        # do not perform profiling on the intersection algorithm
+        else:
+            intersection_output = compute_intersection_tuple_double(tuple(input_one), tuple(input_two))
+    # ListSingle: the intersection algorithm that works on an input list
+    elif approach.value == IntersectionApproach.list_single:
+        # generate the two inputs consisting of random values
+        input_one = generate_random_container(number, maximum, make_tuple=False)
+        input_two = generate_random_container(number, maximum, make_tuple=False)
+        # perform profiling on the execution of the intersection algorithm
+        if profile:
+            profiler.start()
+            intersection_output = compute_intersection_list_single(list(input_one), list(input_two))
+            profiler.stop()
+        # do not perform profiling on the intersection algorithm
+        else:
+            intersection_output = compute_intersection_list_single(list(input_one), list(input_two))
+    # ListDouble: use the intersection algorithm that works on an input list
+    elif approach.value == IntersectionApproach.list_double:
+        # generate the two inputs consisting of random values
+        input_one = generate_random_container(number, maximum, make_tuple=False)
+        input_two = generate_random_container(number, maximum, make_tuple=False)
         # perform profiling on the execution of the intersection algorithm
         if profile:
             profiler.start()
