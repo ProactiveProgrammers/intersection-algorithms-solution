@@ -32,6 +32,8 @@ the List-based and Tuple-based algorithms.
 Note: Do not run the program with the `--display` option when conducting
 experiments!
 
+Note: Document and justify your choice for the `number` and `maximum` variables.
+
 #### Two outputs from running the `ListSingle` algorithm with different inputs
 
 ```
