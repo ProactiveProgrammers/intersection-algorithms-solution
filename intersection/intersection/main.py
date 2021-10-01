@@ -1,4 +1,4 @@
-"""Perform primality testing with an exhaustive and efficient approaches."""
+"""Perform an experiment to study efficiency of intersection."""
 
 from pyinstrument import Profiler  # type: ignore
 
