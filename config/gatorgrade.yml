@@ -86,14 +86,14 @@ setup: |
       check: CountMarkdownTags
       options:
         tag: heading
-        count: 13
-        exact: true
+        count: 14
+        exact: false
     - description: Confirm that the markdown file has the correct number of fenced code blocks
       check: CountMarkdownTags
       options:
         tag: code_block
         count: 7
-        exact: true
+        exact: false
 
 # run a command
 - description: Pass the source code formatting checks run by black
