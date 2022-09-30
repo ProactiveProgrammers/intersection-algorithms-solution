@@ -11,12 +11,14 @@ def test_version():
 
 def test_generate_random_container_list():
     """Ensure that generation of random container is correct size."""
+    # create the lists and perform the assertions
     random_container = main.generate_random_container(10, 100, False)
     assert len(random_container) == 10
 
 
 def test_intersection_list_single_double():
     """Ensure that intersection works for both of the list algorithms."""
+    # create the lists and perform the assertions
     first_list = [1, 2, 3, 4, 5]
     second_list = [4, 5, 6, 7, 8]
     intersection_single = main.compute_intersection_list_single(first_list, second_list)
@@ -28,6 +30,7 @@ def test_intersection_list_single_double():
 
 def test_intersection_tuple_single_double():
     """Ensure that intersection works for both of the list algorithms."""
+    # create the lists and perform the assertions
     first_tuple = (1, 2, 3, 4, 5)
     second_tuple = (4, 5, 6, 7, 8)
     intersection_single = main.compute_intersection_tuple_single(
