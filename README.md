@@ -23,7 +23,7 @@ thus does not include the details concerning all the steps needed to
 successfully complete the every project deliverable. Finally, it is important
 to point out that your repository for this project was created from the GitHub
 repository template called
-[integer-squaring-starter](https://github.com/ProactiveProgrammers/intersection-algorithms-starter/).
+[intersection-algorithms-starter](https://github.com/ProactiveProgrammers/intersection-algorithms-starter/).
 You can check this repository for any updates to this project's documentation
 or source code.
 
