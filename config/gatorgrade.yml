@@ -19,6 +19,12 @@ setup: |
         fragment: TODO
         count: 0
         exact: true
+    - description: Define a function called compute_intersection_list_single
+      check: MatchFileFragment
+      options:
+        fragment: def compute_intersection_list_single
+        count: 1
+        exact: false
     - description: Create a sufficient number of docstring (i.e., multiple-line) comments in main.py
       check: CountMultipleLineComments
       options:
@@ -29,7 +35,7 @@ setup: |
       check: CountSingleLineComments
       options:
         language: "Python"
-        count: 25
+        count: 10
         exact: false
 
 # perform checks on a file
@@ -54,7 +60,7 @@ setup: |
         language: "Python"
         count: 5
         exact: false
-    - description: Create a sufficient number of single-line comments in main.py
+    - description: Create a sufficient number of single-line comments in test_intersection.py to explain test case purpose
       check: CountSingleLineComments
       options:
         language: "Python"
