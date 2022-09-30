@@ -40,7 +40,9 @@ def generate_random_container(
     size: int, maximum: int, make_tuple: bool = False
 ) -> Union[List[int], Tuple[int, ...]]:
     """Generate a random list defined by the size."""
+    # create a list with random numbers in it
     random_list = [random.randrange(1, maximum, 1) for _ in range(size)]
+    # convert the list to a tuple as requested
     if make_tuple:
         return tuple(random_list)
     return random_list
@@ -50,6 +52,7 @@ def compute_intersection_list_double(
     input_one: List[Any], input_two: List[Any]
 ) -> List[Any]:
     """Compute the intersection of two provided lists."""
+    # create an empty list
     result = []
     for x in input_one:
         for y in input_two:
@@ -73,6 +76,7 @@ def compute_intersection_tuple_double(
     input_one: Tuple[Any, ...], input_two: Tuple[Any, ...]
 ) -> Tuple[Any, ...]:
     """Compute the intersection of two provided lists."""
+    # create an empty result that is a tuple
     result: Tuple[Any, ...] = ()
     for x in input_one:
         for y in input_two:
@@ -85,6 +89,7 @@ def compute_intersection_tuple_single(
     input_one: Tuple[Any, ...], input_two: Tuple[Any, ...]
 ) -> Tuple[Any, ...]:
     """Compute the intersection of two provided tuples."""
+    # create an empty result that is a tuple
     result: Tuple[Any, ...] = ()
     for element in input_one:
         if element in input_two:
