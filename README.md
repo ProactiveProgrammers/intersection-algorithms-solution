@@ -92,11 +92,3 @@ steps:
   you should not simply delete the `TODO` marker but instead delete the entire
   prompt so that your reflection is a document that contains polished technical
   writing that is suitable for publication on your professional web site.
-
-
-
-
-- Confirm that the program is producing the expected output
-- Use a `docker run` command for your operating system to run GatorGrader
-- Please be aware that performance profiling in a Docker contain may not work as expected
-- Provide all of the required responses in the `writing/reflection.md` file
