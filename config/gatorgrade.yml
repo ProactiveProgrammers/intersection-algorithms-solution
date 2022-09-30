@@ -25,6 +25,24 @@ setup: |
         fragment: def compute_intersection_list_single
         count: 1
         exact: false
+    - description: Define a function called compute_intersection_list_double
+      check: MatchFileFragment
+      options:
+        fragment: def compute_intersection_list_double
+        count: 1
+        exact: false
+    - description: Define a function called compute_intersection_tuple_single
+      check: MatchFileFragment
+      options:
+        fragment: def compute_intersection_tuple_single
+        count: 1
+        exact: false
+    - description: Define a function called compute_intersection_tuple_double
+      check: MatchFileFragment
+      options:
+        fragment: def compute_intersection_tuple_double
+        count: 1
+        exact: false
     - description: Create a sufficient number of docstring (i.e., multiple-line) comments in main.py
       check: CountMultipleLineComments
       options:
