@@ -1,39 +1,134 @@
+setup: |
+  cd intersection && poetry install
+  echo "Done installing project dependencies!"
 ---
-name: intersection-algorithms
-break: true
-indent: 4
----
 
-# Learn more about GatorGrader and its supported checks by visiting this web site:
-# https://github.com/GatorEducator/gatorgrader
+# Reminder for ^^^:
+# All commands executed in the setup block are done in a
+# one-by-one fashion from the current working directory. This means
+# that there is no history associated with running the commands and
+# thus multiple commands must be run in a single chain.
 
-# Explanation:
-# --> a check without an "--exact" runs a count for an entity as an "at least"
-# --> checks below a file in a specified directory are for that specific file and directory
-# --> checks that appear stand-alone are for an entire Git repository
+# perform checks on a file
+- intersection/intersection/main.py:
+    - description: Ensure that the main.py file exists in the intersection/intersection/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for main.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in main.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 7
+        exact: false
+    - description: Create a sufficient number of single-line comments in main.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 25
+        exact: false
 
-# --> check the Python program
-intersection/intersection/main.py:
-    ConfirmFileExists
-    MatchFileFragment --fragment "TODO" --count 0 --exact
-    CountMultipleLineComments --language Python --count 7
-    CountSingleLineComments --language Python --count 25
+# perform checks on a file
+- intersection/tests/test_intersection.py:
+    - description: Ensure that the test_intersection.py file exists in the intersection/tests/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for test_intersection.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Confirm that the test_intersection.py file contains the required number of test cases
+      check: MatchFileFragment
+      options:
+        fragment: test_
+        count: 4
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in test_intersection.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 5
+        exact: false
+    - description: Create a sufficient number of single-line comments in main.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
 
-# --> check the Python program
-intersection/tests/test_intersection.py:
-    ConfirmFileExists
-    MatchFileFragment --fragment "TODO" --count 0 --exact
-    MatchFileFragment --fragment "test_" --count 4
-    CountMultipleLineComments --language Python --count 5
+# perform checks on a file
+- writing/reflection.md:
+    - description: Ensure that the reflection.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for the reflection
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the reflection file
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Write a minimum number of meaningful words in the reflection
+      check: CountFileWords
+      options:
+        count: 750
+        exact: false
+    - description: Confirm that the markdown file has the correct number of headers
+      check: CountMarkdownTags
+      options:
+        tag: heading
+        count: 13
+        exact: true
+    - description: Confirm that the markdown file has the correct number of fenced code blocks
+      check: CountMarkdownTags
+      options:
+        tag: code_block
+        count: 7
+        exact: true
 
-# --> check the technical writing for various characteristics
-writing/reflection.md:
-    ConfirmFileExists
-    CountFileWords --count 500
-    CountMarkdownTags --tag "heading" --count 13
-    CountMarkdownTags --tag "code_block" --count 11
-    MatchFileFragment --fragment "TODO" --count 0 --exact
-    MatchFileFragment --fragment "Add Your Name Here" --count 0 --exact
+# run a command
+- description: Pass the source code formatting checks run by black
+  command: cd intersection && poetry run task black
 
-# --> check that the number of commits in the Git repository is beyond a threshold
-CountCommits --count 5
+# run a command
+- description: Pass the linting checks run by flake8
+  command: cd intersection && poetry run task flake8
+
+# run a command
+- description: Pass the import checks run by isort
+  command: cd intersection && poetry run task isort
+
+# run a command
+- description: Pass the linting checks run by mypy
+  command: cd intersection && poetry run task mypy
+
+# run a command
+- description: Pass the linting checks run by pydocstyle
+  command: cd intersection && poetry run task pydocstyle
+
+# run a command
+- description: Pass the linting checks run by pylint
+  command: cd intersection && poetry run task pylint
+
+# run a command
+- description: Pass the linting checks run by pymarkdown
+  command: cd intersection && poetry run task markdownlint
+
+# run a command
+- description: Pass all of the Pytest test cases
+  command: cd intersection && poetry run task test
+
+# count number of commits in the GitHub repository
+- description: Have at least a specific minimum of commits in repository
+  check: CountCommits
+  options:
+    count: 5
