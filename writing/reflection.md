@@ -36,41 +36,41 @@ Note: Document and justify your choice for the `number` and `maximum` variables.
 
 #### Two outputs from running the `ListSingle` algorithm with different inputs
 
-```
+```text
 output
 ```
 
-```
+```text
 output
 ```
 
 #### Two outputs from running the `ListDouble` algorithm with different inputs
 
-```
+```text
 output
 ```
 
-```
+```text
 output
 ```
 
 #### Two outputs from running the `TupleSingle` algorithm with different inputs
 
-```
+```text
 output
 ```
 
-```
+```text
 output
 ```
 
 #### Two outputs from running the `TupleDouble` algorithm with different inputs
 
-```
+```text
 output
 ```
 
-```
+```text
 output
 ```
 
@@ -110,9 +110,9 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
 #### A class that defines the four algorithmic options for running the experiment
 
 Note: Use a fenced code block to provide the requested source code
-Note: Write at least one paragraph to explain the request source code
+Note: Write at least one paragraph to explain the requested source code
 
-```
+```python
 class IntersectionApproach(str, Enum):
     """Define the name for the approach for performing intersection of structured types."""
 
@@ -133,7 +133,7 @@ Note: Use a fenced code block to provide the requested source code
 Note: Write at least one paragraph to explain the request source code
 Note: Explain each of the command-line arguments for this program
 
-```
+```python
 def intersection(
     number: int = typer.Option(5),
     maximum: int = typer.Option(25),
@@ -154,7 +154,7 @@ Note: Use a fenced code block to provide the requested source code
 Note: Write at least one paragraph to explain the request source code
 Note: Explain each line of source code in this function
 
-```
+```python
 def generate_random_container(
     size: int, maximum: int, make_tuple: bool = False
 ) -> Union[List[int], Tuple[int, ...]]:
@@ -170,7 +170,18 @@ tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
 gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-### What was the greatest challenge that you faced when completing this assignment?
+## Professional Reflection
+
+### In the context of Python programming, what are your greatest strengths and weaknesses?
+
+Note: Provide a one-paragraph response that answers this question in your own words.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+### In the context of running performance experiments, what are your greatest strengths and weaknesses?
 
 Note: Provide a one-paragraph response that answers this question in your own words.
 
@@ -180,6 +191,15 @@ vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
 gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ### Leveraging your response to the previous question, how did you overcome the challenge?
+
+Note: Provide a one-paragraph response that answers this question in your own words.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+### Give an example of a truth that you once thought was simple, but that now you think is more complex and nuanced than you realized. Use your example to explain why the deep investigation of computer program performance is essential for proactive programmers.
 
 Note: Provide a one-paragraph response that answers this question in your own words.
 
