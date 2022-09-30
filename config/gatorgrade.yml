@@ -43,6 +43,18 @@ setup: |
         fragment: def compute_intersection_tuple_double
         count: 1
         exact: false
+    - description: Use the += operator when performing the intersection of two tuples
+      check: MatchFileFragment
+      options:
+        fragment: result +=
+        count: 2
+        exact: false
+    - description: Use the append function when performing the intersection of two lists
+      check: MatchFileFragment
+      options:
+        fragment: result.append(
+        count: 2
+        exact: false
     - description: Create a sufficient number of docstring (i.e., multiple-line) comments in main.py
       check: CountMultipleLineComments
       options:
