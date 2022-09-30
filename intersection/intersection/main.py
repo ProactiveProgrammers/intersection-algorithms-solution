@@ -1,18 +1,14 @@
 """Perform an experiment to study efficiency of intersection."""
 
-from pyinstrument import Profiler  # type: ignore
-
+import random
+from enum import Enum
 from typing import Any
 from typing import List
 from typing import Tuple
 from typing import Union
 
-from enum import Enum
-
-import random
-
 import typer
-
+from pyinstrument import Profiler  # type: ignore
 from rich.console import Console
 
 # create a Typer object to support the command-line interface
