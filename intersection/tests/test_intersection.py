@@ -1,7 +1,6 @@
 """Test suite to ensure that each function words correctly."""
 
 from intersection import __version__
-
 from intersection import main
 
 
