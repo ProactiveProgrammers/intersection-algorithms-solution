@@ -14,18 +14,18 @@
 If you are a student completing this project as part of a class at Allegheny
 College, please check the [Proactive Programmers Discord
 server](https://discord.gg/kjah8MFYbR) for the assignment's due date. You can
-learn more about this assignment by reading the [Integer
-Squaring](https://proactiveprogrammers.com/data-abstraction/engineering-efforts/integer-squaring/)
+learn more about this assignment by reading the [Intersection
+Algorithms](https://proactiveprogrammers.com/data-abstraction/engineering-efforts/intersection-algorithms/)
 project description on the [Proactive Programmers web
 site](https://proactiveprogrammers.com). Please note that the content provided
 in the README file for this GitHub repository is an overview of the project and
 thus does not include the details concerning all the steps needed to
-successfully complete the every project deliverable. Finally, it is important to
-point out that your repository for this project was created from the GitHub
+successfully complete the every project deliverable. Finally, it is important
+to point out that your repository for this project was created from the GitHub
 repository template called
-[integer-squaring-starter](https://github.com/ProactiveProgrammers/integer-squaring-starter).
-You can check this repository for any updates to this project's documentation or
-source code.
+[integer-squaring-starter](https://github.com/ProactiveProgrammers/intersection-algorithms-starter/).
+You can check this repository for any updates to this project's documentation
+or source code.
 
 ## Seeking Assistance
 
