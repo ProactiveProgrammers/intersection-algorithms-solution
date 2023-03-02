@@ -190,7 +190,7 @@ tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
 gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-### Leveraging your response to the previous question, how did you overcome the challenge?
+### What is a challenge that your have faced and how did you overcome it?
 
 Note: Provide a one-paragraph response that answers this question in your own words.
 
